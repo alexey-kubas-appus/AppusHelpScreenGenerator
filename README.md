@@ -10,113 +10,101 @@ Made by [![Appus Studio](https://github.com/appus-studio/Appus-Splash/blob/maste
 * [Setup](#setup)
 * [Info](#info)
 
-##Configuration:
+#Configuration:
 
-* Objective-C
+## Objective-C
 
-1. Import auto generated “ProjectName-Swift.h” file and inherit Delegate and DataSource
+* Import auto generated “ProjectName-Swift.h” file and inherit Delegate and DataSource
 
-2. Create properties and configure them
-
+* Create properties and configure them
 ```
-	HelpScreenView *helpScreenView;
-	NSMutableArray *hintsDataSource;
-        UIWindow *window = [appDelegate window];
-        self.helpScreenView = [[HelpScreenView alloc] initWithFrame:window.bounds];
-        self.helpScreenView.delegate = self;
-        self.helpScreenView.dataSource = self;
-        [window addSubview:self.helpScreenView];
+HelpScreenView *helpScreenView;
+NSMutableArray *hintsDataSource;
+UIWindow *window = [appDelegate window];
+self.helpScreenView = [[HelpScreenView alloc] initWithFrame:window.bounds];
+self.helpScreenView.delegate = self;
+self.helpScreenView.dataSource = self;
+[window addSubview:self.helpScreenView];
 ``` 
-
-3. Implement Delegate and DataSource
+* Implement Delegate and DataSource
 	
-	- viewForBlurring 
-
-	    Returns nil or view for blur    
-
-	- rectForHint: hint: atIndex:
-
-	    Required for hint with .Custom hint position, must provide rect in bounds of HelpScreenView
-
-	- numberOfHints:
-
-	    returns  number of hints in data source
-
-	
-	- hintForIndex: index:
-
-	    returns  child Hint class instanse
-
-4. Fill hintsDataSource and reload HelpScreenView:
-
 ```
-	[[TextHint alloc] initWithTarget:UIView
-	                            text:NSString];
+Required for hint with .Custom hint position, must provide rect in bounds of HelpScreenView
+- (CGRect)rectForHint:(HelpScreenView * __nonnull)helpScreenView hint:(Hint * __nonnull)hint atIndex:(NSInteger)atIndex;
+
+Returns  number of hints in data source
+- (NSInteger)numberOfHints:(HelpScreenView * __nonnull)helpScreenView;
+
+Returns  child Hint class instanse
+- (Hint * __nonnull)hintForIndex:(HelpScreenView * __nonnull)helpScreenView index:(NSInteger)index;
+
+Returns view which should be blurred
+- (UIView * __nonnull)viewForBlurring;
+```
+
+* Fill hintsDataSource and reload HelpScreenView:
+```
+[[TextHint alloc] initWithTarget:UIView
+                            text:NSString];
 	                            
-	[[TextHint alloc] initWithTarget:UIView
-	                            text:NSString
-	                      bubbleType:BubbleType
-	                           sizes:NSArray<NSValue*>]; //[NSValue valueWithCGRect:CGRect]
+[[TextHint alloc] initWithTarget:UIView
+                            text:NSString
+                      bubbleType:BubbleType
+                           sizes:NSArray<NSValue*>]; //[NSValue valueWithCGRect:CGRect]
 	                           
-	[[TextHint alloc] initWithTargetRect:CGRect
-	                                text:NSString
-	                          bubbleType:BubbleType];
-	                          
+[[TextHint alloc] initWithTargetRect:CGRect
+                                text:NSString
+                          bubbleType:BubbleType];
+                          
 	[[ImageHint alloc] initWithTargetRect:CGRect
-	                                image:UIImage
-	                     imageContentMode:UIViewContentMode
-	                           bubbleType:BubbleType
-	                                sizes:NSArray<NSValue*>]; //[NSValue valueWithCGRect:CGRect]
+                                image:UIImage
+                     imageContentMode:UIViewContentMode
+                           bubbleType:BubbleType
+                                sizes:NSArray<NSValue*>]; //[NSValue valueWithCGRect:CGRect]
 	                                
-	[[ViewHint alloc] initWithTarget:UIView view:UIView];
+[[ViewHint alloc] initWithTarget:UIView view:UIView];
 
-	[self.helpScreenView reloadData]; //Call when UI already configured viewDidAppear etc.
+[self.helpScreenView reloadData]; //Call when UI already configured viewDidAppear etc.
 ```
+# Swift
 
-* [Swift]
-
-1. Inherit Delegate and DataSource
-
+* Inherit Delegate and DataSource
 ```
 	class SomeClass: UIViewController, HelpScreenViewDelegate, HelpScreenViewDataSource
 ```
-
-2. Create properties and configure them
-
+* Create properties and configure them
 ```
-	var helpView: HelpScreenView!
+var helpView: HelpScreenView!
     
-	var hintsDataSource = [Hint]()
+var hintsDataSource = [Hint]()
 
-	self.helpView = HelpScreenView()
+self.helpView = HelpScreenView()
 
-	self.helpView.delegate = self
+self.helpView.delegate = self
 
-	self.helpView.dataSource = self
+self.helpView.dataSource = self
 
-	if let app = UIApplication.sharedApplication().delegate as? AppDelegate, let window = app.window {
-	    self.helpView.addToView(window)
-	}  
+if let app = UIApplication.sharedApplication().delegate as? AppDelegate, let window = app.window {
+    self.helpView.addToView(window)
+}  
 ```
+* Implement Delegate and DataSource
 
-3. Implement Delegate and DataSource
-	
-4. Fill hintsDataSource and reload HelpScreenView
-
+* Fill hintsDataSource and reload HelpScreenView
 ```
-	TextHint(target:UIView! ,text:String ,bubbleType:BubbleType ,sizes:[NSValue]) //[NSValue valueWithCGRect:CGRect]
+TextHint(target:UIView! ,text:String ,bubbleType:BubbleType ,sizes:[NSValue]) //[NSValue valueWithCGRect:CGRect]
 	
-	ImageHint(targetRect:CGRect ,image: UIImage)
+ImageHint(targetRect:CGRect ,image: UIImage)
 	
-	ViewHint(target:UIView! ,view: UIView)
+ViewHint(target:UIView! ,view: UIView)
 
-	helpView.reloadData() //Call when UI already configured viewDidAppear etc. 
+helpView.reloadData() //Call when UI already configured viewDidAppear etc. 
 ```
-##Usage:
+#Usage:
 
 ![](https://github.com/appus-studio/Flat-SlideControl/blob/master/Resource/usage.gif)
 
-##Setup:
+#Setup:
 ```Ruby
 pod 'HelpScreenGenerator'
 ```
