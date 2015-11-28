@@ -12,7 +12,7 @@ Made by [![Appus Studio](https://github.com/appus-studio/Appus-Splash/blob/maste
 
 ##Configuration:
 
-* [Objective-c]
+* Objective-C
 
 1. Import auto generated “ProjectName-Swift.h” file and inherit Delegate and DataSource
 
@@ -20,7 +20,6 @@ Made by [![Appus Studio](https://github.com/appus-studio/Appus-Splash/blob/maste
 
 	HelpScreenView *helpScreenView;
 	NSMutableArray *hintsDataSource;
-
         UIWindow *window = [appDelegate window];
         self.helpScreenView = [[HelpScreenView alloc] initWithFrame:window.bounds];
         self.helpScreenView.delegate = self;
