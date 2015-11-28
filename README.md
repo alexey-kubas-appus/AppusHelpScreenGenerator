@@ -17,6 +17,7 @@ Made by [![Appus Studio](https://github.com/appus-studio/Appus-Splash/blob/maste
 1. Import auto generated “ProjectName-Swift.h” file and inherit Delegate and DataSource
 
 2. Create properties and configure them
+
 	HelpScreenView *helpScreenView;
 	NSMutableArray *hintsDataSource;
 
@@ -29,15 +30,20 @@ Made by [![Appus Studio](https://github.com/appus-studio/Appus-Splash/blob/maste
 3. Implement Delegate and DataSource
 	
 	- viewForBlurring 
+
 	    Returns nil or view for blur    
+
 	- rectForHint: hint: atIndex:
+
 	    Required for hint with .Custom hint position, must provide rect in bounds of HelpScreenView
 
 	- numberOfHints:
+
 	    returns  number of hints in data source
 
 	
 	- hintForIndex: index:
+
 	    returns  child Hint class instanse
 
 4. Fill hintsDataSource and reload HelpScreenView		
