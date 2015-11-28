@@ -18,6 +18,7 @@ Made by [![Appus Studio](https://github.com/appus-studio/Appus-Splash/blob/maste
 
 2. Create properties and configure them
 
+```
 	HelpScreenView *helpScreenView;
 	NSMutableArray *hintsDataSource;
         UIWindow *window = [appDelegate window];
@@ -25,7 +26,8 @@ Made by [![Appus Studio](https://github.com/appus-studio/Appus-Splash/blob/maste
         self.helpScreenView.delegate = self;
         self.helpScreenView.dataSource = self;
         [window addSubview:self.helpScreenView];
-        
+``` 
+
 3. Implement Delegate and DataSource
 	
 	- viewForBlurring 
@@ -45,33 +47,43 @@ Made by [![Appus Studio](https://github.com/appus-studio/Appus-Splash/blob/maste
 
 	    returns  child Hint class instanse
 
-4. Fill hintsDataSource and reload HelpScreenView		
+4. Fill hintsDataSource and reload HelpScreenView:
+
+```
 	[[TextHint alloc] initWithTarget:UIView
 	                            text:NSString];
+	                            
 	[[TextHint alloc] initWithTarget:UIView
 	                            text:NSString
 	                      bubbleType:BubbleType
 	                           sizes:NSArray<NSValue*>]; //[NSValue valueWithCGRect:CGRect]
+	                           
 	[[TextHint alloc] initWithTargetRect:CGRect
 	                                text:NSString
 	                          bubbleType:BubbleType];
+	                          
 	[[ImageHint alloc] initWithTargetRect:CGRect
 	                                image:UIImage
 	                     imageContentMode:UIViewContentMode
 	                           bubbleType:BubbleType
 	                                sizes:NSArray<NSValue*>]; //[NSValue valueWithCGRect:CGRect]
+	                                
 	[[ViewHint alloc] initWithTarget:UIView view:UIView];
 
 	[self.helpScreenView reloadData]; //Call when UI already configured viewDidAppear etc.
+```
 
 * [Swift]
 
 1. Inherit Delegate and DataSource
 
+```
 	class SomeClass: UIViewController, HelpScreenViewDelegate, HelpScreenViewDataSource
+```
 
 2. Create properties and configure them
 
+```
 	var helpView: HelpScreenView!
     
 	var hintsDataSource = [Hint]()
@@ -84,17 +96,22 @@ Made by [![Appus Studio](https://github.com/appus-studio/Appus-Splash/blob/maste
 
 	if let app = UIApplication.sharedApplication().delegate as? AppDelegate, let window = app.window {
 	    self.helpView.addToView(window)
-	}        
+	}  
+```
+
 3. Implement Delegate and DataSource
 	
 4. Fill hintsDataSource and reload HelpScreenView
+
+```
 	TextHint(target:UIView! ,text:String ,bubbleType:BubbleType ,sizes:[NSValue]) //[NSValue valueWithCGRect:CGRect]
+	
 	ImageHint(targetRect:CGRect ,image: UIImage)
+	
 	ViewHint(target:UIView! ,view: UIView)
 
 	helpView.reloadData() //Call when UI already configured viewDidAppear etc. 
-
-
+```
 ##Usage:
 
 ![](https://github.com/appus-studio/Flat-SlideControl/blob/master/Resource/usage.gif)
