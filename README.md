@@ -56,11 +56,11 @@ Returns view which should be blurred or nil
                                 text:NSString
                           bubbleType:BubbleType];
                           
-	[[ImageHint alloc] initWithTargetRect:CGRect
+[[ImageHint alloc] initWithTargetRect:CGRect
                                 image:UIImage
-                     imageContentMode:UIViewContentMode
-                           bubbleType:BubbleType
-                                sizes:NSArray<NSValue*>]; //[NSValue valueWithCGRect:CGRect]
+             imageContentMode:UIViewContentMode
+                   bubbleType:BubbleType
+                        sizes:NSArray<NSValue*>]; //[NSValue valueWithCGRect:CGRect]
 	                                
 [[ViewHint alloc] initWithTarget:UIView view:UIView];
 
@@ -70,7 +70,7 @@ Returns view which should be blurred or nil
 
 * Inherit Delegate and DataSource
 ```
-	class SomeClass: UIViewController, HelpScreenViewDelegate, HelpScreenViewDataSource
+class SomeClass: UIViewController, HelpScreenViewDelegate, HelpScreenViewDataSource
 ```
 * Create properties and configure them
 ```
