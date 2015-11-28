@@ -14,53 +14,41 @@ Made by [![Appus Studio](https://github.com/appus-studio/Appus-Splash/blob/maste
 
 * [Objective-c]
 
-1. Import auto generated “…-Swift.h” file and inherit Delegate and DataSource
+1. Import auto generated “ProjectName-Swift.h” file and inherit Delegate and DataSource
 
-	#import “ProjectName-Swift.h"
-	@interface SomeClass () <HelpScreenViewDelegate, HelpScreenViewDataSource>
+2. Create properties and configure them
+	HelpScreenView *helpScreenView;
+	NSMutableArray *hintsDataSource;
 
-2. Create properties and configure them 
-	@property(strong, nonatomic) HelpScreenView *helpScreenView;
-	@property(strong, nonatomic) NSMutableArray *hintsDataSource;
-
-	id appDelegate = [UIApplication sharedApplication].delegate;
-        if ([appDelegate isKindOfClass:[AppDelegate class]]) {
-            UIWindow *window = [appDelegate window];
-            self.helpScreenView = [[HelpScreenView alloc] initWithFrame:window.bounds];
-            self.helpScreenView.delegate = self;
-            self.helpScreenView.dataSource = self;
-            [window addSubview:self.helpScreenView];
-        }
+        UIWindow *window = [appDelegate window];
+        self.helpScreenView = [[HelpScreenView alloc] initWithFrame:window.bounds];
+        self.helpScreenView.delegate = self;
+        self.helpScreenView.dataSource = self;
+        [window addSubview:self.helpScreenView];
+        
 3. Implement Delegate and DataSource
-	/// Returns nil or view for blur
-	- (UIView *)viewForBlurring {
-	    return self.navigationController.view;
-	}
+	
+	- viewForBlurring 
+	    Returns nil or view for blur    
+	- rectForHint: hint: atIndex:
+	    Required for hint with .Custom hint position, must provide rect in bounds of HelpScreenView
 
-	/// Required for hint with .Custom hint position, must provide rect in bounds of HelpScreenView
-	- (CGRect)rectForHint:(HelpScreenView * __nonnull)helpScreenView hint:(Hint * __nonnull)hint atIndex:(NSInteger)atIndex {
-	    return CGRectMake(x, y, width, height);
-	}
+	- numberOfHints:
+	    returns  number of hints in data source
 
-	/// \returns  number of hints in data source
-	- (NSInteger)numberOfHints:(HelpScreenView * __nonnull)helpScreenView {
-	    return self.hintsDataSource.count;
-	}
-
-	/// \returns  child Hint class instanse
-	- (Hint * __nonnull)hintForIndex:(HelpScreenView * __nonnull)helpScreenView index:(NSInteger)index {
-	    return self.hintsDataSource[index];
-	}
+	
+	- hintForIndex: index:
+	    returns  child Hint class instanse
 
 4. Fill hintsDataSource and reload HelpScreenView		
 	[[TextHint alloc] initWithTarget:UIView
-	                            text:@"Text"];
+	                            text:NSString];
 	[[TextHint alloc] initWithTarget:UIView
-	                            text:@"Text"
+	                            text:NSString
 	                      bubbleType:BubbleType
 	                           sizes:NSArray<NSValue*>]; //[NSValue valueWithCGRect:CGRect]
 	[[TextHint alloc] initWithTargetRect:CGRect
-	                                text:@"Text"
+	                                text:NSString
 	                          bubbleType:BubbleType];
 	[[ImageHint alloc] initWithTargetRect:CGRect
 	                                image:UIImage
@@ -90,7 +78,6 @@ Made by [![Appus Studio](https://github.com/appus-studio/Appus-Splash/blob/maste
 	self.helpView.dataSource = self
 
 	if let app = UIApplication.sharedApplication().delegate as? AppDelegate, let window = app.window {
-            
 	    self.helpView.addToView(window)
 	}        
 3. Implement Delegate and DataSource
