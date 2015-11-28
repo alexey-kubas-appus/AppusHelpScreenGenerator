@@ -38,7 +38,7 @@ Returns  number of hints in data source
 Returns  child Hint class instanse
 - (Hint * __nonnull)hintForIndex:(HelpScreenView * __nonnull)helpScreenView index:(NSInteger)index;
 
-Returns view which should be blurred
+Returns view which should be blurred or nil
 - (UIView * __nonnull)viewForBlurring;
 ```
 
