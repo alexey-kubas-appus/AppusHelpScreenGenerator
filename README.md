@@ -102,7 +102,7 @@ helpView.reloadData() //Call when UI already configured viewDidAppear etc.
 ```
 #Usage:
 
-![](https://github.com/appus-studio/Flat-SlideControl/blob/master/Resource/usage.gif)
+![](https://github.com/alexey-kubas-appus/HelpScreenGenerator/blob/master/Resouces/usage.gif)
 
 #Setup:
 ```Ruby
