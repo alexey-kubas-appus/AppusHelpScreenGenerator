@@ -1,5 +1,5 @@
 //
-//  ImageHint.swift
+//  APImageHint.swift
 //  HelpScreenDemo
 //
 //  Created by Andrey Pervushin on 04.11.15.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ImageHint: Hint {
+class APImageHint: APHint {
     
     var image:UIImage? = UIImage()
     

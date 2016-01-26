@@ -16,7 +16,7 @@ extension Float {
         return CGFloat(self) * CGFloat(M_PI) / 180.0
     }
 }
-class HelperImageView: UIImageView {
+class APHelperImageView: UIImageView {
 
     let DEFAULT_TIP_ANGLE = 15
     let DEFAULT_TIP_LENGTH = 25 as CGFloat

@@ -1,5 +1,5 @@
 //
-//  ViewHint.swift
+//  APViewHint.swift
 //  HelpScreenDemo
 //
 //  Created by Andrey Pervushin on 05.11.15.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewHint: Hint {
+class APViewHint: APHint {
     
     var originalViewSize:CGSize!
     

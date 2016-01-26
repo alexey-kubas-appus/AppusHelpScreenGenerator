@@ -1,5 +1,5 @@
 //
-//  HintCloudPainter.swift
+//  APHintCloudPainter.swift
 //  HelpScreenDemo
 //
 //  Created by Andrey Pervushin on 09.11.15.
@@ -119,9 +119,9 @@ extension CGVector {
 }
 
 
-class HintCloudPainter: NSObject {
+class APHintCloudPainter: NSObject {
     
-    func drawCloudWithHint(hint:Hint, imageView:HelperImageView){
+    func drawCloudWithHint(hint: APHint, imageView: APHelperImageView){
         
         switch (self.detectBubbleForHint(hint)){
 
@@ -137,7 +137,7 @@ class HintCloudPainter: NSObject {
         
     }
     
-    func detectBubbleForHint(hint:Hint)->BubbleType{
+    func detectBubbleForHint(hint: APHint)->BubbleType{
   
         if (hint.bubbleType != .Auto){
             
@@ -180,7 +180,7 @@ class HintCloudPainter: NSObject {
         }
     }
     
-    func drawLineWithHint(hint:Hint, imageView:HelperImageView){
+    func drawLineWithHint(hint: APHint, imageView: APHelperImageView){
         
         let targetFrame = hint.targetFrame
         
@@ -226,7 +226,7 @@ class HintCloudPainter: NSObject {
         
     }
     
-    func drawPinBoxWithHint(hint:Hint, imageView:HelperImageView){
+    func drawPinBoxWithHint(hint: APHint, imageView: APHelperImageView){
         
         let targetFrame = hint.targetFrame
         

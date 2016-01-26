@@ -1,5 +1,5 @@
 //
-//  Hint.swift
+//  APHint.swift
 //  HelpScreenDemo
 //
 //  Created by Andrey Pervushin on 04.11.15.
@@ -21,7 +21,7 @@ import UIKit
     
 }
 
-class Hint: NSObject {
+class APHint: NSObject {
     
     var target:UIView!
     

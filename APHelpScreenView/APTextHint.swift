@@ -1,5 +1,5 @@
 //
-//  TextHint.swift
+//  APTextHint.swift
 //  HelpScreenDemo
 //
 //  Created by Andrey Pervushin on 04.11.15.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TextHint: Hint {
+class APTextHint: APHint {
     
     var text:String?
     

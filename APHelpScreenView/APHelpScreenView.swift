@@ -9,32 +9,32 @@
 import UIKit
 
 
-@objc protocol HelpScreenViewDelegate{
+@objc protocol APHelpScreenViewDelegate {
     
     /**
      Used to get tapped hint, if tapped outside of any hint, hint is nil
      */
-    func didTapHint(helpScreenView:HelpScreenView, hint:Hint?)
+    func didTapHint(helpScreenView: APHelpScreenView, hint: APHint?)
     
 }
 
-@objc protocol HelpScreenViewDataSource{
+@objc protocol APHelpScreenViewDataSource {
     
     /**
      Required for hint with .Custom hint position, must provide rect in bounds of HelpScreenView
      */
-    func rectForHint(helpScreenView:HelpScreenView, hint:Hint, atIndex:Int)->CGRect
+    func rectForHint(helpScreenView: APHelpScreenView, hint: APHint, atIndex:Int)->CGRect
     
     /**
      - returns: number of hints in data source
      */
-    func numberOfHints(helpScreenView:HelpScreenView)->Int
+    func numberOfHints(helpScreenView: APHelpScreenView)->Int
     
     
     /**
      - returns: child Hint class instanse
      */
-    func hintForIndex(helpScreenView:HelpScreenView, index:Int)->Hint
+    func hintForIndex(helpScreenView: APHelpScreenView, index:Int)-> APHint
 
     /**
      - returns view which should be blurred
@@ -47,15 +47,15 @@ import UIKit
 /**
  HelpScreenView - class for easy creating tutorials and help screens
  */
-class HelpScreenView: UIView {
+class APHelpScreenView: UIView {
     
-    var hints :[Hint]?
+    var hints :[APHint]?
 
-    var backgroundImageView = HelperImageView()
+    var backgroundImageView = APHelperImageView()
     
-    var delegate:HelpScreenViewDelegate! = nil
+    var delegate: APHelpScreenViewDelegate! = nil
     
-    var dataSource:HelpScreenViewDataSource! = nil
+    var dataSource: APHelpScreenViewDataSource! = nil
     
     override init(frame: CGRect) {
         
@@ -133,7 +133,7 @@ class HelpScreenView: UIView {
             
             hint.hintContainer.frame = hintRect
             
-            Hint.applyConstraintsFromRect(hint.hintContainer, rect: hintRect)
+            APHint.applyConstraintsFromRect(hint.hintContainer, rect: hintRect)
             
         }
         
@@ -238,11 +238,11 @@ class HelpScreenView: UIView {
     /**
      A bit tricky method to improve auto placing algorithm, first iterating hints from the beginig next from the end to center
      */
-    private func reorderedHints()->[Hint]{
+    private func reorderedHints()->[APHint]{
         
         let itemsCount = self.dataSource!.numberOfHints(self)
         
-        var indexes = [Hint]()
+        var indexes = [APHint]()
 
         for (var i = itemsCount - 1; i >= 0; i--){
 
@@ -323,7 +323,7 @@ class HelpScreenView: UIView {
         
         for hint in self.hints! {
             
-            HintCloudPainter().drawCloudWithHint(hint, imageView: self.backgroundImageView)
+            APHintCloudPainter().drawCloudWithHint(hint, imageView: self.backgroundImageView)
             
             //add some padding to make dots on targets better
             
