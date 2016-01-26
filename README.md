@@ -1,9 +1,9 @@
-HelpScreenGenerator
+AppusHelpScreenGenerator
 =====================
 
 Made by [![Appus Studio](https://github.com/appus-studio/Appus-Splash/blob/master/image/logo.png)](http://appus.pro)
 
-'HelpScreenGenerator' is a component, which gives you an opportunity to easily make a help screens for Your app
+'AppusHelpScreenGenerator' is a component, which gives you an opportunity to easily make a help screens for Your app
 
 * [Configuration](#configuration)
 * [Usage](#usage)
@@ -102,11 +102,11 @@ helpView.reloadData() //Call when UI already configured viewDidAppear etc.
 ```
 #Usage:
 
-![](https://github.com/alexey-kubas-appus/HelpScreenGenerator/blob/master/Resouces/usage.gif)
+![](https://github.com/alexey-kubas-appus/AppusHelpScreenGenerator/blob/master/Resouces/usage.gif)
 
 #Setup:
 ```Ruby
-pod 'HelpScreenGenerator'
+pod 'AppusHelpScreenGenerator'
 ```
 
 Developed By
