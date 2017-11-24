@@ -1,7 +1,7 @@
 AppusHelpScreenGenerator
 =====================
 
-Made by [![Appus Studio](https://github.com/appus-studio/Appus-Splash/blob/master/image/logo.png)](http://appus.pro)
+Made by [![Appus Studio](https://github.com/alexey-kubas-appus/AppusHelpScreenGenerator/blob/master/Resouces/appus.png)](https://appus.software)
 
 'AppusHelpScreenGenerator' is a component, which gives you an opportunity to easily make a help screens for Your app
 
@@ -112,7 +112,7 @@ pod 'AppusHelpScreenGenerator'
 Developed By
 ------------
 
-* Alexey Kubas, Sergey Sokoltsov, Andrey Pervushin, Appus Studio
+* Alexey Kubas, Sergey Sokoltsov, Andrey Pervushin, [Appus Studio](https://appus.software)
 
 License
 --------
